@@ -1,0 +1,123 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Deep space gradient background - refined -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#020205;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Sophisticated cyan glow for main text -->
+    <filter id="cyanGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12" result="blur1"/>
+      <feOffset in="blur1" dx="0" dy="0" result="offsetBlur1"/>
+      <feFlood flood-color="#00f5ff" flood-opacity="0.4" result="color1"/>
+      <feComposite in="color1" in2="offsetBlur1" operator="in" result="glow1"/>
+
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur2"/>
+      <feFlood flood-color="#00f5ff" flood-opacity="0.6" result="color2"/>
+      <feComposite in="color2" in2="blur2" operator="in" result="glow2"/>
+
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur3"/>
+      <feFlood flood-color="#00f5ff" flood-opacity="0.3" result="color3"/>
+      <feComposite in="color3" in2="blur3" operator="in" result="glow3"/>
+
+      <feMerge>
+        <feMergeNode in="glow1"/>
+        <feMergeNode in="glow2"/>
+        <feMergeNode in="glow3"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Refined subtitle glow -->
+    <filter id="subtleGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#00f5ff" flood-opacity="0.25" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur2"/>
+      <feFlood flood-color="#00f5ff" flood-opacity="0.15" result="color2"/>
+      <feComposite in="color2" in2="blur2" operator="in" result="glow2"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Atmospheric glow gradients - meticulously crafted -->
+    <radialGradient id="cyanAtmosphere" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:0.06" />
+      <stop offset="30%" style="stop-color:#00f5ff;stop-opacity:0.04" />
+      <stop offset="60%" style="stop-color:#00f5ff;stop-opacity:0.02" />
+      <stop offset="100%" style="stop-color:#00f5ff;stop-opacity:0" />
+    </radialGradient>
+
+    <radialGradient id="purpleAtmosphere" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#5000aa;stop-opacity:0.08" />
+      <stop offset="40%" style="stop-color:#5000aa;stop-opacity:0.04" />
+      <stop offset="80%" style="stop-color:#5000aa;stop-opacity:0.01" />
+      <stop offset="100%" style="stop-color:#5000aa;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background gradient foundation -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Layered atmospheric glows - creating depth -->
+  <ellipse cx="600" cy="340" rx="380" ry="360" fill="url(#cyanAtmosphere)"/>
+  <ellipse cx="600" cy="340" rx="300" ry="280" fill="url(#cyanAtmosphere)" opacity="0.8"/>
+  <ellipse cx="600" cy="340" rx="220" ry="200" fill="url(#cyanAtmosphere)" opacity="0.6"/>
+
+  <!-- Purple accent glows - complementary depth -->
+  <ellipse cx="350" cy="400" rx="200" ry="200" fill="url(#purpleAtmosphere)"/>
+  <ellipse cx="850" cy="280" rx="170" ry="170" fill="url(#purpleAtmosphere)" opacity="0.9"/>
+
+  <!-- Main typography - "aiFunnel" with expert craftsmanship -->
+  <text x="600" y="355"
+        font-family="'Arial Black', 'Helvetica Bold', Arial, sans-serif"
+        font-size="120"
+        font-weight="900"
+        fill="#ffffff"
+        text-anchor="middle"
+        filter="url(#cyanGlow)"
+        style="letter-spacing: -3px; paint-order: stroke fill;">aiFunnel</text>
+
+  <!-- Subtitle - "Agentic AI Engineering" with refined spacing -->
+  <text x="600" y="415"
+        font-family="'Helvetica', Arial, sans-serif"
+        font-size="32"
+        font-weight="300"
+        fill="#c0c0c0"
+        text-anchor="middle"
+        filter="url(#subtleGlow)"
+        style="letter-spacing: 2px;">Agentic AI Engineering</text>
+
+  <!-- Precision geometric accents - mathematical perfection -->
+  <g stroke="#00f5ff" stroke-width="1.5" stroke-opacity="0.75" fill="none" stroke-linecap="square">
+    <!-- Top left accent - crisp angles -->
+    <line x1="60" y1="60" x2="160" y2="60"/>
+    <line x1="60" y1="60" x2="60" y2="90"/>
+
+    <!-- Bottom right accent - perfect symmetry -->
+    <line x1="1140" y1="570" x2="1040" y2="570"/>
+    <line x1="1140" y1="570" x2="1140" y2="540"/>
+  </g>
+
+  <!-- Technical annotations - sparse, essential labeling -->
+  <text x="65" y="106"
+        font-family="'Courier New', 'Courier', monospace"
+        font-size="8.5"
+        font-weight="500"
+        fill="#00f5ff"
+        opacity="0.65"
+        style="letter-spacing: 2.5px;">AGENTIC INTERFACE</text>
+
+  <text x="985" y="560"
+        font-family="'Courier New', 'Courier', monospace"
+        font-size="8.5"
+        font-weight="500"
+        fill="#00f5ff"
+        opacity="0.65"
+        style="letter-spacing: 2.5px;">AGENTIC AI SYSTEMS</text>
+</svg>

@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0P29NF3KG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-S0P29NF3KG');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>aiFunnel - Agentic AI Engineering</title>
+  <meta name="description" content="Where AI meets conversion. Transform your pipeline with intelligent automation that learns, adapts, and delivers.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aifunnel.chat/">
+  <meta property="og:title" content="aiFunnel - Agentic AI Engineering">
+  <meta property="og:description" content="Where AI meets conversion. Transform your pipeline with intelligent automation that learns, adapts, and delivers.">
+  <meta property="og:image" content="https://aifunnel.chat/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="aiFunnel">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://aifunnel.chat/">
+  <meta name="twitter:title" content="aiFunnel - Agentic AI Engineering">
+  <meta name="twitter:description" content="Where AI meets conversion. Transform your pipeline with intelligent automation that learns, adapts, and delivers.">
+  <meta name="twitter:image" content="https://aifunnel.chat/og-image.jpg">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#00f5ff">
+  <link rel="canonical" href="https://aifunnel.chat/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/aifunnel_logo.svg">
+  <link rel="apple-touch-icon" href="images/aifunnel_logo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --void-black: #000000;
+      --void-deep: #050508;
+      --void-surface: #0a0a0f;
+      --cyan-glow: #00f5ff;
+      --cyan-dim: #00a8b3;
+      --purple-accent: #8b5cf6;
+      --white-hot: #ffffff;
+      --text-muted: #4a4a5a;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: var(--void-black);
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--white-hot);
+      cursor: none;
+    }
+
+    /* Custom Cursor */
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--cyan-glow);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, border-color 0.2s, background 0.2s;
+      mix-blend-mode: difference;
+    }
+
+    .cursor.hover {
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 245, 255, 0.1);
+      border-color: var(--purple-accent);
+    }
+
+    .cursor-dot {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: var(--cyan-glow);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10001;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px var(--cyan-glow), 0 0 20px var(--cyan-glow);
+    }
+
+    .cursor-trail {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: var(--cyan-glow);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Main Container */
+    .void-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: radial-gradient(ellipse at center, #0a0a15 0%, #050508 40%, #000000 100%);
+    }
+
+    /* Logo Watermark */
+    .logo-watermark {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url('images/aifunnel_logo.svg') center/contain no-repeat;
+      opacity: 0.08;
+      z-index: 2;
+      animation: watermarkPulse 8s ease-in-out infinite, watermarkRotate 60s linear infinite;
+      pointer-events: none;
+    }
+
+    .logo-watermark-glow {
+      position: absolute;
+      width: 900px;
+      height: 900px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url('images/aifunnel_logo.svg') center/contain no-repeat;
+      opacity: 0.04;
+      z-index: 2;
+      animation: watermarkPulse 8s ease-in-out infinite reverse, watermarkRotate 90s linear infinite reverse;
+      pointer-events: none;
+      filter: blur(15px);
+    }
+
+    @keyframes watermarkPulse {
+      0%, 100% { opacity: 0.06; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 0.12; transform: translate(-50%, -50%) scale(1.08); }
+    }
+
+    @keyframes watermarkRotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Noise Overlay */
+    .noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    /* Scan Lines */
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+      );
+      pointer-events: none;
+      z-index: 101;
+      animation: scanMove 8s linear infinite;
+    }
+
+    @keyframes scanMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(4px); }
+    }
+
+    /* Particle Canvas */
+    #particleCanvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    /* The Singularity */
+    .singularity {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .singularity-core {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        var(--cyan-glow) 20%, 
+        var(--purple-accent) 40%, 
+        transparent 70%);
+      box-shadow: 
+        0 0 60px var(--cyan-glow),
+        0 0 100px var(--cyan-glow),
+        0 0 140px var(--purple-accent),
+        inset 0 0 60px rgba(0, 245, 255, 0.5);
+      animation: corePulse 4s ease-in-out infinite, coreRotate 20s linear infinite;
+      filter: blur(1px);
+    }
+
+    @keyframes corePulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.9; }
+    }
+
+    @keyframes coreRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Accretion Disk Rings */
+    .ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      border: 1px solid;
+      transform: translate(-50%, -50%) rotateX(75deg);
+      animation: ringRotate 15s linear infinite;
+    }
+
+    .ring-1 {
+      width: 300px;
+      height: 300px;
+      border-color: rgba(0, 245, 255, 0.3);
+      box-shadow: 0 0 20px rgba(0, 245, 255, 0.2), inset 0 0 20px rgba(0, 245, 255, 0.1);
+      animation-duration: 20s;
+    }
+
+    .ring-2 {
+      width: 400px;
+      height: 400px;
+      border-color: rgba(139, 92, 246, 0.2);
+      box-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
+      animation-duration: 30s;
+      animation-direction: reverse;
+    }
+
+    .ring-3 {
+      width: 500px;
+      height: 500px;
+      border-color: rgba(0, 245, 255, 0.1);
+      animation-duration: 40s;
+    }
+
+    @keyframes ringRotate {
+      from { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg); }
+      to { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(360deg); }
+    }
+
+    /* Orbital Particles on Rings */
+    .orbital {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: var(--cyan-glow);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--cyan-glow), 0 0 20px var(--cyan-glow);
+    }
+
+    /* Floating Glass Orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(0, 245, 255, 0.05) 50%, 
+        transparent 100%);
+      border: 1px solid rgba(0, 245, 255, 0.2);
+      backdrop-filter: blur(10px);
+      box-shadow: 
+        inset 0 0 30px rgba(0, 245, 255, 0.1),
+        0 0 40px rgba(0, 245, 255, 0.1);
+      z-index: 5;
+      animation: float 6s ease-in-out infinite;
+      cursor: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .orb:hover {
+      box-shadow: 
+        inset 0 0 40px rgba(0, 245, 255, 0.2),
+        0 0 60px rgba(0, 245, 255, 0.3);
+    }
+
+    .orb-1 {
+      width: 80px;
+      height: 80px;
+      top: 15%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 50px;
+      height: 50px;
+      top: 70%;
+      left: 15%;
+      animation-delay: 1s;
+      animation-duration: 8s;
+    }
+
+    .orb-3 {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      right: 10%;
+      animation-delay: 2s;
+      animation-duration: 7s;
+    }
+
+    .orb-4 {
+      width: 40px;
+      height: 40px;
+      top: 75%;
+      right: 20%;
+      animation-delay: 3s;
+    }
+
+    .orb-5 {
+      width: 60px;
+      height: 60px;
+      bottom: 10%;
+      left: 50%;
+      animation-delay: 1.5s;
+      animation-duration: 9s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    /* Content Layer */
+    .content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* Logo/Title */
+    .title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 10vw, 6rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--white-hot) 0%, var(--cyan-glow) 50%, var(--purple-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 80px rgba(0, 245, 255, 0.5);
+      animation: titleEnter 1.5s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      position: relative;
+      cursor: none;
+    }
+
+    .title::before {
+      content: 'aiFunnel';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--cyan-glow) 0%, var(--purple-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0;
+      animation: glitchFlash 4s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+
+    @keyframes titleEnter {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glitchFlash {
+      0%, 94%, 100% { opacity: 0; transform: translate(0, 0); }
+      95% { opacity: 1; transform: translate(-5px, 2px); }
+      96% { opacity: 0; transform: translate(5px, -2px); }
+      97% { opacity: 1; transform: translate(2px, 5px); }
+      98% { opacity: 0; }
+    }
+
+    .title:hover {
+      animation: glitch 0.3s steps(2) infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: -2px 0 var(--cyan-glow), 2px 0 var(--purple-accent); }
+      25% { text-shadow: 2px 0 var(--cyan-glow), -2px 0 var(--purple-accent); }
+      50% { text-shadow: -2px 2px var(--cyan-glow), 2px -2px var(--purple-accent); }
+      75% { text-shadow: 2px -2px var(--cyan-glow), -2px 2px var(--purple-accent); }
+      100% { text-shadow: -2px 0 var(--cyan-glow), 2px 0 var(--purple-accent); }
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-size: clamp(0.75rem, 2vw, 1rem);
+      letter-spacing: 0.5em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tagline */
+    .tagline {
+      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 500px;
+      line-height: 1.8;
+      margin-top: 2rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.8s forwards;
+      transform: translateY(20px);
+    }
+
+    /* CTA Button */
+    .cta-container {
+      margin-top: 3rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1.1s forwards;
+      transform: translateY(20px);
+    }
+
+    .cta-btn {
+      position: relative;
+      padding: 1rem 3rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white-hot);
+      background: transparent;
+      border: 2px solid var(--cyan-glow);
+      cursor: none;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: all 0.5s ease;
+      opacity: 0;
+    }
+
+    .cta-btn:hover::before {
+      width: 300px;
+      height: 300px;
+      opacity: 0.3;
+    }
+
+    .cta-btn:hover {
+      box-shadow: 0 0 30px var(--cyan-glow), inset 0 0 30px rgba(0, 245, 255, 0.1);
+      text-shadow: 0 0 10px var(--cyan-glow);
+      transform: scale(1.05);
+    }
+
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.4), transparent);
+      transform: translateX(-100%);
+    }
+
+    .cta-btn:hover::after {
+      animation: shine 0.6s forwards;
+    }
+
+    @keyframes shine {
+      to { transform: translateX(100%); }
+    }
+
+    /* Corner Decorations */
+    .corner {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      z-index: 60;
+      opacity: 0;
+      animation: cornerFade 1s ease-out 1.5s forwards;
+      pointer-events: auto;
+      cursor: none;
+    }
+
+    .corner-tl {
+      top: 2rem;
+      left: 2rem;
+      border-top: 2px solid var(--cyan-glow);
+      border-left: 2px solid var(--cyan-glow);
+    }
+
+    .corner-tr {
+      top: 2rem;
+      right: 2rem;
+      border-top: 2px solid var(--cyan-glow);
+      border-right: 2px solid var(--cyan-glow);
+    }
+
+    .corner-bl {
+      bottom: 2rem;
+      left: 2rem;
+      border-bottom: 2px solid var(--cyan-glow);
+      border-left: 2px solid var(--cyan-glow);
+    }
+
+    .corner-br {
+      bottom: 2rem;
+      right: 2rem;
+      border-bottom: 2px solid var(--cyan-glow);
+      border-right: 2px solid var(--cyan-glow);
+    }
+
+    @keyframes cornerFade {
+      to { opacity: 0.5; }
+    }
+
+    /* Status Indicators */
+    .status {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      z-index: 60;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1.8s forwards;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--cyan-glow);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* Coordinates Display */
+    .coords {
+      position: absolute;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      z-index: 60;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1.6s forwards;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Social Links */
+    .social {
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 60;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 2s forwards;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 245, 255, 0.3);
+      color: var(--text-muted);
+      transition: all 0.3s ease;
+      cursor: none;
+      font-size: 1rem;
+    }
+
+    .social-link:hover {
+      border-color: var(--cyan-glow);
+      color: var(--cyan-glow);
+      box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Modal Container */
+    .modal {
+      position: relative;
+      background: linear-gradient(145deg, rgba(15, 15, 25, 0.95) 0%, rgba(5, 5, 10, 0.98) 100%);
+      border: 1px solid rgba(0, 245, 255, 0.3);
+      padding: 3rem 3.5rem;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      transform: scale(0.8) translateY(30px);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 
+        0 0 60px rgba(0, 245, 255, 0.15),
+        0 0 120px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .modal-overlay.active .modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-glow {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(0, 245, 255, 0.1) 0%, transparent 50%);
+      animation: modalGlowPulse 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes modalGlowPulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* Modal Close Button */
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: 1px solid rgba(0, 245, 255, 0.3);
+      color: var(--text-muted);
+      font-size: 1rem;
+      cursor: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      border-color: var(--cyan-glow);
+      color: var(--cyan-glow);
+      box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+      transform: rotate(90deg);
+    }
+
+    /* Modal Icon */
+    .modal-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.5rem;
+      border: 2px solid var(--cyan-glow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: iconPulse 2s ease-in-out infinite;
+      box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+    }
+
+    .modal-icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--cyan-glow);
+    }
+
+    @keyframes iconPulse {
+      0%, 100% { box-shadow: 0 0 30px rgba(0, 245, 255, 0.3); }
+      50% { box-shadow: 0 0 50px rgba(0, 245, 255, 0.5), 0 0 80px rgba(139, 92, 246, 0.3); }
+    }
+
+    /* Modal Typography */
+    .modal-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--white-hot) 0%, var(--cyan-glow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .modal-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+    }
+
+    /* Modal Contact Info */
+    .modal-contact {
+      background: rgba(0, 245, 255, 0.05);
+      border: 1px solid rgba(0, 245, 255, 0.2);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+      animation: contactShine 3s ease-in-out infinite;
+    }
+
+    @keyframes contactShine {
+      0% { left: -100%; }
+      50%, 100% { left: 100%; }
+    }
+
+    .modal-label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-phone {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cyan-glow);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .modal-phone:hover {
+      text-shadow: 0 0 20px var(--cyan-glow);
+      transform: scale(1.05);
+    }
+
+    /* Modal CTA Buttons */
+    .modal-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .modal-btn {
+      padding: 0.875rem 1.75rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-btn-primary {
+      background: linear-gradient(135deg, var(--cyan-glow) 0%, var(--cyan-dim) 100%);
+      color: var(--void-black);
+      border: none;
+    }
+
+    .modal-btn-primary:hover {
+      box-shadow: 0 0 30px var(--cyan-glow);
+      transform: translateY(-2px);
+    }
+
+    .modal-btn-secondary {
+      background: transparent;
+      color: var(--white-hot);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .modal-btn-secondary:hover {
+      border-color: var(--purple-accent);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .social {
+        position: absolute;
+        right: 1rem;
+        top: auto;
+        bottom: 5rem;
+        transform: none;
+        flex-direction: row;
+      }
+
+      .corner {
+        width: 50px;
+        height: 50px;
+      }
+
+      .corner-tl, .corner-bl { left: 1rem; }
+      .corner-tr, .corner-br { right: 1rem; }
+      .corner-tl, .corner-tr { top: 1rem; }
+      .corner-bl, .corner-br { bottom: 1rem; }
+
+      .orb-1, .orb-3 { display: none; }
+
+      .ring-1 { width: 200px; height: 200px; }
+      .ring-2 { width: 280px; height: 280px; }
+      .ring-3 { width: 360px; height: 360px; }
+
+      .singularity-core {
+        width: 80px;
+        height: 80px;
+      }
+
+      .status {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      .modal {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+      }
+
+      .modal-title {
+        font-size: 1.4rem;
+      }
+
+      .modal-phone {
+        font-size: 1.2rem;
+      }
+
+      .modal-cta {
+        flex-direction: column;
+      }
+
+      .modal-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* Preloader */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      background: var(--void-black);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .preloader.loaded {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .preloader-ring {
+      width: 60px;
+      height: 60px;
+      border: 3px solid transparent;
+      border-top-color: var(--cyan-glow);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Interactive Ripple */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid var(--cyan-glow);
+      animation: rippleExpand 0.6s ease-out forwards;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    @keyframes rippleExpand {
+      from {
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      to {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-ring"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Main Container -->
+  <div class="void-container" id="voidContainer">
+    <!-- Logo Watermarks -->
+    <div class="logo-watermark"></div>
+    <div class="logo-watermark-glow"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+    <div class="scanlines"></div>
+
+    <!-- Floating Orbs -->
+    <div class="orb orb-1" data-depth="0.2"></div>
+    <div class="orb orb-2" data-depth="0.4"></div>
+    <div class="orb orb-3" data-depth="0.3"></div>
+    <div class="orb orb-4" data-depth="0.5"></div>
+    <div class="orb orb-5" data-depth="0.25"></div>
+
+    <!-- The Singularity -->
+    <div class="singularity" id="singularity">
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+      <div class="singularity-core"></div>
+    </div>
+
+    <!-- Corner Decorations -->
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <!-- Coordinates -->
+    <div class="coords" id="coords">
+      <span id="coordX">X: 0.000</span> &nbsp;|&nbsp; <span id="coordY">Y: 0.000</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <h1 class="title">aiFunnel</h1>
+      <p class="subtitle">Agentic AI Engineering and Consultancy</p>
+      <p class="tagline">
+        Where AI meets conversion. Transform your pipeline with 
+        intelligent automation that learns, adapts, and delivers.
+      </p>
+      <div class="cta-container">
+        <a href="#" class="cta-btn" id="ctaBtn">Get Started</a>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="status">
+      <div class="status-item">
+        <span class="status-dot"></span>
+        <span>SYSTEM ONLINE</span>
+      </div>
+      <div class="status-item">
+        <span class="status-dot" style="animation-delay: 0.5s;"></span>
+        <span>PORTAL STABLE</span>
+      </div>
+      <div class="status-item">
+        <span class="status-dot" style="animation-delay: 1s;"></span>
+        <span>AWAITING INPUT</span>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social">
+      <a href="https://buy.stripe.com/6oUcMVghe7mD9TH4h40Fi03" class="social-link" id="payBtn" target="_blank" rel="noopener" title="Support aiFunnel">$</a>
+      <a href="#" class="social-link">◇</a>
+      <a href="#" class="social-link">○</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" id="modal">
+        <div class="modal-glow"></div>
+        <button class="modal-close" id="modalClose">✕</button>
+        <div class="modal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <h2 class="modal-title">Let's Connect</h2>
+        <p class="modal-subtitle">Ready to transform your pipeline?</p>
+        <div class="modal-contact">
+          <span class="modal-label">Message JB</span>
+          <a href="tel:+14304132808" class="modal-phone">+1 (430) 413-2808</a>
+        </div>
+        <div class="modal-cta">
+          <a href="sms:+14304132808" class="modal-btn modal-btn-primary">Send Text</a>
+          <a href="tel:+14304132808" class="modal-btn modal-btn-secondary">Call Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ============================================
+    // PARTICLE SYSTEM WITH PHYSICS
+    // ============================================
+    class ParticleSystem {
+      constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.particles = [];
+        this.mouse = { x: null, y: null, radius: 150 };
+        this.center = { x: 0, y: 0 };
+        this.particleCount = window.innerWidth < 768 ? 100 : 250;
+        
+        this.resize();
+        this.init();
+        this.animate();
+
+        window.addEventListener('resize', () => this.resize());
+      }
+
+      resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.center = {
+          x: this.canvas.width / 2,
+          y: this.canvas.height / 2
+        };
+      }
+
+      init() {
+        this.particles = [];
+        for (let i = 0; i < this.particleCount; i++) {
+          this.particles.push(new Particle(this));
+        }
+      }
+
+      animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // Draw connections
+        this.drawConnections();
+        
+        // Update and draw particles
+        this.particles.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+
+        requestAnimationFrame(() => this.animate());
+      }
+
+      drawConnections() {
+        for (let i = 0; i < this.particles.length; i++) {
+          for (let j = i + 1; j < this.particles.length; j++) {
+            const dx = this.particles[i].x - this.particles[j].x;
+            const dy = this.particles[i].y - this.particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 100) {
+              const opacity = (1 - distance / 100) * 0.3;
+              this.ctx.beginPath();
+              this.ctx.strokeStyle = `rgba(0, 245, 255, ${opacity})`;
+              this.ctx.lineWidth = 0.5;
+              this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+              this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+              this.ctx.stroke();
+            }
+          }
+        }
+      }
+
+      setMouse(x, y) {
+        this.mouse.x = x;
+        this.mouse.y = y;
+      }
+    }
+
+    class Particle {
+      constructor(system) {
+        this.system = system;
+        this.reset();
+      }
+
+      reset() {
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * Math.max(this.system.canvas.width, this.system.canvas.height) * 0.5 + 100;
+        
+        this.x = this.system.center.x + Math.cos(angle) * distance;
+        this.y = this.system.center.y + Math.sin(angle) * distance;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = 0;
+        this.speedY = 0;
+        this.baseSpeed = 0.5;
+        this.density = Math.random() * 30 + 1;
+        this.alpha = Math.random() * 0.5 + 0.3;
+        this.depth = Math.random();
+      }
+
+      update() {
+        // Gravity toward center
+        const dx = this.system.center.x - this.x;
+        const dy = this.system.center.y - this.y;
+        const distToCenter = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distToCenter > 50) {
+          const gravityForce = 0.02;
+          this.speedX += (dx / distToCenter) * gravityForce;
+          this.speedY += (dy / distToCenter) * gravityForce;
+        }
+
+        // Mouse repulsion
+        if (this.system.mouse.x !== null) {
+          const dxMouse = this.x - this.system.mouse.x;
+          const dyMouse = this.y - this.system.mouse.y;
+          const distToMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+          
+          if (distToMouse < this.system.mouse.radius) {
+            const force = (this.system.mouse.radius - distToMouse) / this.system.mouse.radius;
+            const forceDirectionX = dxMouse / distToMouse;
+            const forceDirectionY = dyMouse / distToMouse;
+            
+            this.speedX += forceDirectionX * force * 2;
+            this.speedY += forceDirectionY * force * 2;
+          }
+        }
+
+        // Apply friction
+        this.speedX *= 0.98;
+        this.speedY *= 0.98;
+
+        // Update position
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        // Reset if too close to center or out of bounds
+        if (distToCenter < 30 || 
+            this.x < -50 || this.x > this.system.canvas.width + 50 ||
+            this.y < -50 || this.y > this.system.canvas.height + 50) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        const ctx = this.system.ctx;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 245, 255, ${this.alpha})`;
+        ctx.fill();
+        
+        // Glow effect
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 245, 255, ${this.alpha * 0.2})`;
+        ctx.fill();
+      }
+    }
+
+    // ============================================
+    // CURSOR SYSTEM
+    // ============================================
+    class CursorSystem {
+      constructor() {
+        this.cursor = document.getElementById('cursor');
+        this.cursorDot = document.getElementById('cursorDot');
+        this.cursorPos = { x: 0, y: 0 };
+        this.targetPos = { x: 0, y: 0 };
+        this.trails = [];
+        this.trailCount = 8;
+        
+        this.createTrails();
+        this.bindEvents();
+        this.animate();
+      }
+
+      createTrails() {
+        for (let i = 0; i < this.trailCount; i++) {
+          const trail = document.createElement('div');
+          trail.className = 'cursor-trail';
+          document.body.appendChild(trail);
+          this.trails.push({
+            el: trail,
+            x: 0,
+            y: 0
+          });
+        }
+      }
+
+      bindEvents() {
+        document.addEventListener('mousemove', (e) => {
+          this.targetPos.x = e.clientX;
+          this.targetPos.y = e.clientY;
+        });
+
+        // Hover states
+        const hoverElements = document.querySelectorAll('a, button, .cta-btn, .social-link, .modal-btn, .modal-close, .modal-phone');
+        hoverElements.forEach(el => {
+          el.addEventListener('mouseenter', () => this.cursor.classList.add('hover'));
+          el.addEventListener('mouseleave', () => this.cursor.classList.remove('hover'));
+        });
+      }
+
+      animate() {
+        // Smooth cursor movement
+        this.cursorPos.x += (this.targetPos.x - this.cursorPos.x) * 0.15;
+        this.cursorPos.y += (this.targetPos.y - this.cursorPos.y) * 0.15;
+
+        this.cursor.style.left = this.cursorPos.x + 'px';
+        this.cursor.style.top = this.cursorPos.y + 'px';
+        
+        this.cursorDot.style.left = this.targetPos.x + 'px';
+        this.cursorDot.style.top = this.targetPos.y + 'px';
+
+        // Trail animation
+        let prevX = this.targetPos.x;
+        let prevY = this.targetPos.y;
+        
+        this.trails.forEach((trail, i) => {
+          const speed = 0.35 - (i * 0.03);
+          trail.x += (prevX - trail.x) * speed;
+          trail.y += (prevY - trail.y) * speed;
+          
+          trail.el.style.left = trail.x + 'px';
+          trail.el.style.top = trail.y + 'px';
+          trail.el.style.opacity = (1 - i / this.trailCount) * 0.5;
+          trail.el.style.width = (4 - i * 0.3) + 'px';
+          trail.el.style.height = (4 - i * 0.3) + 'px';
+          
+          prevX = trail.x;
+          prevY = trail.y;
+        });
+
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+
+    // ============================================
+    // PARALLAX ORBS
+    // ============================================
+    class ParallaxOrbs {
+      constructor() {
+        this.orbs = document.querySelectorAll('.orb');
+        this.mouse = { x: 0, y: 0 };
+        this.center = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        
+        this.bindEvents();
+        this.animate();
+      }
+
+      bindEvents() {
+        document.addEventListener('mousemove', (e) => {
+          this.mouse.x = e.clientX - this.center.x;
+          this.mouse.y = e.clientY - this.center.y;
+        });
+
+        // Mobile gyroscope
+        if (window.DeviceOrientationEvent) {
+          window.addEventListener('deviceorientation', (e) => {
+            this.mouse.x = (e.gamma || 0) * 10;
+            this.mouse.y = (e.beta || 0) * 10;
+          });
+        }
+      }
+
+      animate() {
+        this.orbs.forEach(orb => {
+          const depth = parseFloat(orb.dataset.depth) || 0.2;
+          const moveX = this.mouse.x * depth * 0.5;
+          const moveY = this.mouse.y * depth * 0.5;
+          
+          orb.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+
+    // ============================================
+    // COORDINATE DISPLAY
+    // ============================================
+    class CoordinateDisplay {
+      constructor() {
+        this.coordX = document.getElementById('coordX');
+        this.coordY = document.getElementById('coordY');
+        
+        document.addEventListener('mousemove', (e) => {
+          const x = ((e.clientX / window.innerWidth) * 2 - 1).toFixed(3);
+          const y = ((e.clientY / window.innerHeight) * 2 - 1).toFixed(3);
+          this.coordX.textContent = `X: ${x}`;
+          this.coordY.textContent = `Y: ${y}`;
+        });
+      }
+    }
+
+    // ============================================
+    // RIPPLE EFFECT
+    // ============================================
+    class RippleEffect {
+      constructor() {
+        document.addEventListener('click', (e) => {
+          const ripple = document.createElement('div');
+          ripple.className = 'ripple';
+          ripple.style.left = e.clientX - 100 + 'px';
+          ripple.style.top = e.clientY - 100 + 'px';
+          document.body.appendChild(ripple);
+          
+          setTimeout(() => ripple.remove(), 600);
+        });
+      }
+    }
+
+    // ============================================
+    // MAGNETIC BUTTON
+    // ============================================
+    class MagneticButton {
+      constructor(el) {
+        this.el = el;
+        this.strength = 40;
+        
+        this.el.addEventListener('mousemove', (e) => this.onMouseMove(e));
+        this.el.addEventListener('mouseleave', () => this.onMouseLeave());
+      }
+
+      onMouseMove(e) {
+        const rect = this.el.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        const deltaX = (e.clientX - centerX) / rect.width * this.strength;
+        const deltaY = (e.clientY - centerY) / rect.height * this.strength;
+        
+        this.el.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(1.05)`;
+      }
+
+      onMouseLeave() {
+        this.el.style.transform = 'translate(0, 0) scale(1)';
+      }
+    }
+
+    // ============================================
+    // SINGULARITY INTERACTION
+    // ============================================
+    class SingularityInteraction {
+      constructor() {
+        this.singularity = document.getElementById('singularity');
+        this.center = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        
+        document.addEventListener('mousemove', (e) => {
+          const deltaX = (e.clientX - this.center.x) / this.center.x;
+          const deltaY = (e.clientY - this.center.y) / this.center.y;
+          
+          const rotateX = deltaY * 10;
+          const rotateY = deltaX * 10;
+          const scale = 1 + Math.abs(deltaX * deltaY) * 0.1;
+          
+          this.singularity.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
+        });
+      }
+    }
+
+    // ============================================
+    // SOUND SYSTEM (Web Audio API)
+    // ============================================
+    class SoundSystem {
+      constructor() {
+        this.audioContext = null;
+        this.initialized = false;
+        this.masterVolume = 0.15;
+
+        // Try to initialize immediately
+        this.init();
+
+        // Also initialize on any user interaction to handle browser autoplay policy
+        const initOnInteraction = () => {
+          this.init();
+          this.resume();
+        };
+        document.addEventListener('click', initOnInteraction);
+        document.addEventListener('touchstart', initOnInteraction);
+        document.addEventListener('mousemove', initOnInteraction, { once: true });
+        document.addEventListener('keydown', initOnInteraction, { once: true });
+        document.addEventListener('scroll', initOnInteraction, { once: true });
+      }
+
+      init() {
+        if (this.initialized) return;
+        try {
+          this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          this.initialized = true;
+        } catch (e) {
+          console.log('Web Audio not supported');
+        }
+      }
+
+      resume() {
+        if (this.audioContext && this.audioContext.state === 'suspended') {
+          this.audioContext.resume();
+        }
+      }
+
+      // Soft rising tone for buttons
+      playHoverTone() {
+        if (!this.initialized || !this.audioContext) return;
+        this.resume();
+        
+        const osc = this.audioContext.createOscillator();
+        const gain = this.audioContext.createGain();
+        
+        osc.connect(gain);
+        gain.connect(this.audioContext.destination);
+        
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(400, this.audioContext.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(600, this.audioContext.currentTime + 0.1);
+        
+        gain.gain.setValueAtTime(0, this.audioContext.currentTime);
+        gain.gain.linearRampToValueAtTime(this.masterVolume * 0.5, this.audioContext.currentTime + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.15);
+        
+        osc.start(this.audioContext.currentTime);
+        osc.stop(this.audioContext.currentTime + 0.15);
+      }
+
+      // Quick blip for social links
+      playBlip() {
+        if (!this.initialized || !this.audioContext) return;
+        this.resume();
+        
+        const osc = this.audioContext.createOscillator();
+        const gain = this.audioContext.createGain();
+        
+        osc.connect(gain);
+        gain.connect(this.audioContext.destination);
+        
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(880, this.audioContext.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(1200, this.audioContext.currentTime + 0.05);
+        
+        gain.gain.setValueAtTime(this.masterVolume * 0.3, this.audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.08);
+        
+        osc.start(this.audioContext.currentTime);
+        osc.stop(this.audioContext.currentTime + 0.08);
+      }
+
+      // Glitchy sound for title
+      playGlitch() {
+        if (!this.initialized || !this.audioContext) return;
+        this.resume();
+        
+        const bufferSize = this.audioContext.sampleRate * 0.1;
+        const buffer = this.audioContext.createBuffer(1, bufferSize, this.audioContext.sampleRate);
+        const output = buffer.getChannelData(0);
+        
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = Math.random() * 2 - 1;
+        }
+        
+        const noise = this.audioContext.createBufferSource();
+        const bandpass = this.audioContext.createBiquadFilter();
+        const gain = this.audioContext.createGain();
+        
+        noise.buffer = buffer;
+        bandpass.type = 'bandpass';
+        bandpass.frequency.value = 1000;
+        bandpass.Q.value = 5;
+        
+        noise.connect(bandpass);
+        bandpass.connect(gain);
+        gain.connect(this.audioContext.destination);
+        
+        gain.gain.setValueAtTime(this.masterVolume * 0.4, this.audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.1);
+        
+        noise.start(this.audioContext.currentTime);
+        noise.stop(this.audioContext.currentTime + 0.1);
+      }
+
+      // Confirmation sound for CTA click
+      playConfirm() {
+        if (!this.initialized || !this.audioContext) return;
+        this.resume();
+        
+        const osc1 = this.audioContext.createOscillator();
+        const osc2 = this.audioContext.createOscillator();
+        const gain = this.audioContext.createGain();
+        
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(this.audioContext.destination);
+        
+        osc1.type = 'sine';
+        osc2.type = 'sine';
+        
+        osc1.frequency.setValueAtTime(523.25, this.audioContext.currentTime); // C5
+        osc1.frequency.setValueAtTime(659.25, this.audioContext.currentTime + 0.1); // E5
+        
+        osc2.frequency.setValueAtTime(659.25, this.audioContext.currentTime);
+        osc2.frequency.setValueAtTime(783.99, this.audioContext.currentTime + 0.1); // G5
+        
+        gain.gain.setValueAtTime(this.masterVolume * 0.4, this.audioContext.currentTime);
+        gain.gain.linearRampToValueAtTime(this.masterVolume * 0.5, this.audioContext.currentTime + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.4);
+        
+        osc1.start(this.audioContext.currentTime);
+        osc2.start(this.audioContext.currentTime);
+        osc1.stop(this.audioContext.currentTime + 0.4);
+        osc2.stop(this.audioContext.currentTime + 0.4);
+      }
+
+      // Whoosh for orbs
+      playWhoosh() {
+        if (!this.initialized || !this.audioContext) return;
+        this.resume();
+        
+        const bufferSize = this.audioContext.sampleRate * 0.3;
+        const buffer = this.audioContext.createBuffer(1, bufferSize, this.audioContext.sampleRate);
+        const output = buffer.getChannelData(0);
+        
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = Math.random() * 2 - 1;
+        }
+        
+        const noise = this.audioContext.createBufferSource();
+        const lowpass = this.audioContext.createBiquadFilter();
+        const gain = this.audioContext.createGain();
+        
+        noise.buffer = buffer;
+        lowpass.type = 'lowpass';
+        lowpass.frequency.setValueAtTime(100, this.audioContext.currentTime);
+        lowpass.frequency.exponentialRampToValueAtTime(2000, this.audioContext.currentTime + 0.1);
+        lowpass.frequency.exponentialRampToValueAtTime(100, this.audioContext.currentTime + 0.3);
+        
+        noise.connect(lowpass);
+        lowpass.connect(gain);
+        gain.connect(this.audioContext.destination);
+        
+        gain.gain.setValueAtTime(0, this.audioContext.currentTime);
+        gain.gain.linearRampToValueAtTime(this.masterVolume * 0.3, this.audioContext.currentTime + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.3);
+        
+        noise.start(this.audioContext.currentTime);
+        noise.stop(this.audioContext.currentTime + 0.3);
+      }
+
+      // Epic modal open sound
+      playModalOpen() {
+        if (!this.initialized || !this.audioContext) return;
+        this.resume();
+        
+        const now = this.audioContext.currentTime;
+        
+        // Deep bass hit
+        const bassOsc = this.audioContext.createOscillator();
+        const bassGain = this.audioContext.createGain();
+        bassOsc.type = 'sine';
+        bassOsc.frequency.setValueAtTime(80, now);
+        bassOsc.frequency.exponentialRampToValueAtTime(40, now + 0.3);
+        bassGain.gain.setValueAtTime(this.masterVolume * 0.6, now);
+        bassGain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+        bassOsc.connect(bassGain);
+        bassGain.connect(this.audioContext.destination);
+        bassOsc.start(now);
+        bassOsc.stop(now + 0.4);
+        
+        // Shimmer layer
+        const shimmerOsc = this.audioContext.createOscillator();
+        const shimmerOsc2 = this.audioContext.createOscillator();
+        const shimmerGain = this.audioContext.createGain();
+        shimmerOsc.type = 'sine';
+        shimmerOsc2.type = 'sine';
+        shimmerOsc.frequency.setValueAtTime(800, now);
+        shimmerOsc.frequency.exponentialRampToValueAtTime(1200, now + 0.2);
+        shimmerOsc2.frequency.setValueAtTime(1200, now);
+        shimmerOsc2.frequency.exponentialRampToValueAtTime(1600, now + 0.2);
+        shimmerGain.gain.setValueAtTime(0, now);
+        shimmerGain.gain.linearRampToValueAtTime(this.masterVolume * 0.3, now + 0.05);
+        shimmerGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+        shimmerOsc.connect(shimmerGain);
+        shimmerOsc2.connect(shimmerGain);
+        shimmerGain.connect(this.audioContext.destination);
+        shimmerOsc.start(now);
+        shimmerOsc2.start(now);
+        shimmerOsc.stop(now + 0.5);
+        shimmerOsc2.stop(now + 0.5);
+        
+        // Digital chime
+        setTimeout(() => {
+          if (!this.audioContext) return;
+          const chimeOsc = this.audioContext.createOscillator();
+          const chimeGain = this.audioContext.createGain();
+          chimeOsc.type = 'triangle';
+          chimeOsc.frequency.setValueAtTime(1047, this.audioContext.currentTime); // C6
+          chimeGain.gain.setValueAtTime(this.masterVolume * 0.4, this.audioContext.currentTime);
+          chimeGain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.6);
+          chimeOsc.connect(chimeGain);
+          chimeGain.connect(this.audioContext.destination);
+          chimeOsc.start(this.audioContext.currentTime);
+          chimeOsc.stop(this.audioContext.currentTime + 0.6);
+        }, 100);
+      }
+
+      // Modal close sound
+      playModalClose() {
+        if (!this.initialized || !this.audioContext) return;
+        this.resume();
+        
+        const osc = this.audioContext.createOscillator();
+        const gain = this.audioContext.createGain();
+        
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(600, this.audioContext.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(200, this.audioContext.currentTime + 0.15);
+        
+        gain.gain.setValueAtTime(this.masterVolume * 0.4, this.audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.15);
+        
+        osc.connect(gain);
+        gain.connect(this.audioContext.destination);
+        osc.start(this.audioContext.currentTime);
+        osc.stop(this.audioContext.currentTime + 0.15);
+      }
+    }
+
+    // ============================================
+    // INITIALIZATION
+    // ============================================
+    window.addEventListener('load', () => {
+      // Hide preloader
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('loaded');
+      }, 500);
+
+      // Initialize systems
+      const canvas = document.getElementById('particleCanvas');
+      const particleSystem = new ParticleSystem(canvas);
+      
+      // Connect mouse to particle system
+      document.addEventListener('mousemove', (e) => {
+        particleSystem.setMouse(e.clientX, e.clientY);
+      });
+      
+      document.addEventListener('mouseleave', () => {
+        particleSystem.setMouse(null, null);
+      });
+
+      // Touch support for particles
+      document.addEventListener('touchmove', (e) => {
+        if (e.touches[0]) {
+          particleSystem.setMouse(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      });
+
+      document.addEventListener('touchend', () => {
+        particleSystem.setMouse(null, null);
+      });
+
+      // Only initialize cursor on non-touch devices
+      if (!('ontouchstart' in window)) {
+        new CursorSystem();
+      } else {
+        document.body.style.cursor = 'auto';
+        document.getElementById('cursor').style.display = 'none';
+        document.getElementById('cursorDot').style.display = 'none';
+      }
+
+      new ParallaxOrbs();
+      new CoordinateDisplay();
+      new RippleEffect();
+      new SingularityInteraction();
+
+      // Magnetic buttons
+      document.querySelectorAll('.cta-btn').forEach(btn => new MagneticButton(btn));
+
+      // Sound System
+      const soundSystem = new SoundSystem();
+
+      // Wire up sounds to elements
+      const ctaBtn = document.getElementById('ctaBtn');
+      const modalOverlay = document.getElementById('modalOverlay');
+      const modalClose = document.getElementById('modalClose');
+      
+      ctaBtn.addEventListener('mouseenter', () => soundSystem.playHoverTone());
+      ctaBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        soundSystem.playModalOpen();
+        modalOverlay.classList.add('active');
+      });
+
+      // Modal close handlers
+      modalClose.addEventListener('mouseenter', () => soundSystem.playBlip());
+      modalClose.addEventListener('click', () => {
+        soundSystem.playModalClose();
+        modalOverlay.classList.remove('active');
+      });
+
+      // Close on overlay click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          soundSystem.playModalClose();
+          modalOverlay.classList.remove('active');
+        }
+      });
+
+      // Close on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+          soundSystem.playModalClose();
+          modalOverlay.classList.remove('active');
+        }
+      });
+
+      // Payment Button - opens Stripe in popup
+      const payBtn = document.getElementById('payBtn');
+      payBtn.addEventListener('mouseenter', () => soundSystem.playBlip());
+      payBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        soundSystem.playConfirm();
+        const width = 500;
+        const height = 700;
+        const left = (screen.width - width) / 2;
+        const top = (screen.height - height) / 2;
+        window.open(
+          'https://buy.stripe.com/6oUcMVghe7mD9TH4h40Fi03',
+          'stripe_payment',
+          `width=${width},height=${height},left=${left},top=${top},toolbar=no,menubar=no,scrollbars=yes,resizable=yes`
+        );
+      });
+
+      // Modal button sounds
+      document.querySelectorAll('.modal-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => soundSystem.playHoverTone());
+      });
+
+      // Phone number hover
+      const modalPhone = document.querySelector('.modal-phone');
+      if (modalPhone) {
+        modalPhone.addEventListener('mouseenter', () => soundSystem.playBlip());
+      }
+
+      // Title glitch sound
+      const title = document.querySelector('.title');
+      title.addEventListener('mouseenter', () => soundSystem.playGlitch());
+
+      // Social links blip
+      document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('mouseenter', () => soundSystem.playBlip());
+      });
+
+      // Orbs whoosh
+      document.querySelectorAll('.orb').forEach(orb => {
+        orb.addEventListener('mouseenter', () => soundSystem.playWhoosh());
+      });
+
+      // Corner decorations subtle tone
+      document.querySelectorAll('.corner').forEach(corner => {
+        corner.addEventListener('mouseenter', () => soundSystem.playBlip());
+      });
+    });
+  </script>
+</body>
+</html>
