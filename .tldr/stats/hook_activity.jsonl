@@ -1,0 +1,2 @@
+{"hook_name": "session-start-tldr-cache", "invocations": 1, "successes": 1, "failures": 0, "metrics": {"sessions_started": 1, "cache_warmed": 1}, "timestamp": "2026-01-22T21:18:18.749572+00:00"}
+{"hook_name": "post-edit-notify", "invocations": 3, "successes": 3, "failures": 0, "metrics": {"edits_notified": 3, "reindexes_triggered": 0}, "timestamp": "2026-01-23T11:06:13.381412+00:00"}
