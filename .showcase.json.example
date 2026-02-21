@@ -1,0 +1,19 @@
+{
+  "title": "Project Name",
+  "one_liner": "One sentence describing what this project does.",
+  "problem": "What pain point or bottleneck did you solve?",
+  "solution": "What you built and how it works at a high level.",
+  "impact": "Concrete result, metric, or business outcome.",
+  "stack": ["TypeScript", "Node.js", "PostgreSQL"],
+  "status": "active",
+  "updated_at": "2026-02-21",
+  "tags": ["automation", "ai", "backend"],
+  "highlights": [
+    "Reduced manual ops by 80%.",
+    "Added full audit trail for all runs."
+  ],
+  "screenshot_url": "https://raw.githubusercontent.com/your-username/showcase/main/assets/screenshots/project-name.png",
+  "demo_url": "https://example.com/demo",
+  "article_url": "https://example.com/writeup",
+  "visibility_note": "Core repository is private. This page describes architecture and outcomes only."
+}

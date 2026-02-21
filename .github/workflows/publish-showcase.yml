@@ -1,0 +1,65 @@
+name: Publish Showcase Entry
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - ".showcase.json"
+      - ".github/workflows/publish-showcase.yml"
+      - "scripts/render_showcase_entry.py"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout private repo
+        uses: actions/checkout@v4
+
+      - name: Render sanitized showcase artifacts
+        run: |
+          python3 scripts/render_showcase_entry.py \
+            --input .showcase.json \
+            --out-json /tmp/showcase.json \
+            --out-md /tmp/showcase.md
+
+      - name: Checkout public showcase repo
+        uses: actions/checkout@v4
+        with:
+          repository: btcjon/showcase
+          path: showcase-repo
+          token: ${{ secrets.SHOWCASE_SYNC_TOKEN }}
+
+      - name: Copy project artifacts
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: |
+          mkdir -p showcase-repo/projects
+          cp /tmp/showcase.json "showcase-repo/projects/${REPO_NAME}.json"
+          cp /tmp/showcase.md "showcase-repo/projects/${REPO_NAME}.md"
+
+      - name: Rebuild showcase index
+        run: |
+          python3 showcase-repo/scripts/rebuild_index.py \
+            --projects-dir showcase-repo/projects \
+            --readme-template showcase-repo/README.template.md \
+            --readme-output showcase-repo/README.md
+
+      - name: Create or update PR in showcase repo
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.SHOWCASE_SYNC_TOKEN }}
+          path: showcase-repo
+          branch: bot/showcase-sync-${{ github.event.repository.name }}
+          delete-branch: true
+          commit-message: "chore(showcase): sync ${{ github.event.repository.name }}"
+          title: "chore(showcase): sync ${{ github.event.repository.name }}"
+          body: |
+            Automated sanitized showcase sync from `${{ github.repository }}`.
+            Source workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          labels: |
+            automation
+            showcase

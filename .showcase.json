@@ -1,0 +1,19 @@
+{
+  "title": "AIFunnel Web",
+  "one_liner": "High-conversion landing site for AI consulting and agentic engineering offers.",
+  "problem": "The offer needed a stronger digital front door that could communicate positioning fast and convert profile visitors into qualified leads.",
+  "solution": "Designed and shipped a production landing experience with focused messaging, strong above-the-fold framing, and direct CTA pathways.",
+  "impact": "Created a high-clarity front door for AI consulting offers and improved how quickly prospects understand the value proposition.",
+  "stack": ["HTML", "CSS", "JavaScript", "Netlify"],
+  "status": "active",
+  "updated_at": "2026-02-06",
+  "tags": ["frontend", "landing-page", "conversion", "branding"],
+  "highlights": [
+    "Built a conversion-first one-page funnel with strong visual identity and clear action hierarchy.",
+    "Focused on performance and trust elements so visitors can understand the offer within seconds.",
+    "Used direct-response structure with service framing, proof signals, and friction-light CTA flow."
+  ],
+  "screenshot_url": "https://raw.githubusercontent.com/btcjon/showcase/main/assets/screenshots/aifunnel-web.png",
+  "demo_url": "https://aifunnel.chat/",
+  "visibility_note": "Core repository is private. This entry summarizes architecture and working approach without exposing proprietary source."
+}
